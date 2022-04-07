@@ -31,10 +31,6 @@ watch(brightness, () => {
   changeBrightnessContrast()
 })
 
-const debounceChangeBrightnessContrast = debounce(() => {
-  changeBrightnessContrast()
-}, 50)
-
 const changeBrightnessContrast = () => {
   const ctx = canvasImg.value.getContext('2d')
   const iD = ctx.getImageData(0, 0, canvasImg.value.width, canvasImg.value.height)

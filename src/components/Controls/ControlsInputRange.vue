@@ -18,6 +18,7 @@ const thumbLeft = ref(0)
 const hideLine = ref(null)
 const fakeDrag = ref(null)
 const hideLineWidth = ref(0)
+const oldX = ref(0)
 
 const emit = defineEmits(['changeValue'])
 
@@ -31,13 +32,15 @@ const clickLine = (event) => {
 }
 
 const dragThumb = (event) => {
-  const x = event.x - 40
+  const x = event.target.offsetLeft + (event.x - oldX.value)
   if (x > 0 && x <= hideLineWidth.value) {
     progressLine.value = x / hideLineWidth.value
+    oldX.value = event.x
     emit('changeValue', progressLine.value)
   }
 }
 const dragstartThumb = (event) => {
+  oldX.value = event.x
   event.dataTransfer.setDragImage(fakeDrag.value, 0, 0)
 }
 
