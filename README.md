@@ -22,3 +22,9 @@ npm run dev
 ```sh
 npm run build
 ```
+
+### Show app after build
+
+```sh
+npm run preview
+```
