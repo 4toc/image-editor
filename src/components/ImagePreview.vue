@@ -2,7 +2,6 @@
 
 import {computed, onMounted, ref, watch} from 'vue';
 import {useStore} from 'vuex';
-import {debounce} from 'lodash';
 
 import exampleImg from '@/assets/images/example.png'
 
